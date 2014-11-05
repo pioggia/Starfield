@@ -22,15 +22,10 @@ public void setup()
 	orbiters = new Particle[55];
 	for (int i=0; i<orbiters.length; i++)
 	{
-		if (i==1)
-		{
-			orbiters[1]=new Meteor();
-		}
+		if (i==1) {orbiters[1]=new Meteor();}
 		else if(i==2) {orbiters[i]=new Comet();}
-		else 
-		{
-			orbiters[i] = new Meteor();
-		}
+		else if(i==3) {orbiters[i]=new Meteorite();}
+		else {orbiters[i] = new Meteor();}
 	}
 }
 public void draw()
@@ -113,6 +108,14 @@ class Meteor implements Particle
 			x=(int)(Math.random()*500);
 			y=(int)(Math.random()*500);
 		}
+	}
+}
+class Meteorite extends Meteor
+{
+	Meteorite()
+	{
+		siz=(float)(Math.random()*3+3);
+		colour=color(236, 15, 15);
 	}
 }
 class Comet implements Particle
